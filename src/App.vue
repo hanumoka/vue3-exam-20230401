@@ -1,15 +1,30 @@
 <template>
-  <div class="name">하누모카 뷰3 예제 {{ name }}</div>
-  <h1>aaaa</h1>
+  <!-- <div>{{ greeting(name) }}</div> -->
+  <div>{{ name }}</div>
+  <input type="text" v-bind:value="name" />
+  <button class="btn btn-primary" v-on:click="chaneName">Click</button>
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   setup() {
-    const name = "hanumoka";
+    let name = ref("hanu");
+
+    // const greeting = (name) => {
+    //   return "hello, " + name;
+    // };
+
+    const chaneName = () => {
+      console.log("chaneName...");
+      name.value = "coker";
+    };
 
     return {
       name,
+      // greeting,
+      chaneName,
     };
   },
 };
